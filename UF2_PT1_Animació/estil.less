@@ -1,0 +1,203 @@
+@keyframes fiummm{
+    0%      { left: 130%; }
+    100%    { left: -100px; } 
+}
+
+@keyframes meneo{
+    0%      { transform: translateY(10px); }
+    50%     { transform: translateY(-10px); }
+    100%    { transform: translateY(10px); }
+}
+
+@keyframes rodes{
+    0%      { transform: rotate(0deg); }
+    100%    { transform: rotate(360deg); }
+}
+
+@keyframes cabeceo{
+    0%      { transform: rotate(0deg); }
+    50%     { transform: translateX(470px) translateY(-650px) rotate(15deg); }
+    100%    { transform: rotate(0deg); }
+}
+
+@keyframes astre{
+    0%      { transform: translateX(0) translateY(0); }
+    100%    { transform: translateX(200px) translateY(-100px); }
+}
+// KEYFRAMES    ↑↑↑↑↑↑↑↑↑↑↑↑    KEYFRAMES //
+//========================================//
+// ESTILS       ↓↓↓↓↓↓↓↓↓↓↓↓       ESTILS //
+@altura: 400px;
+@amplada: 700px;
+html 
+{
+    height:100%;
+
+    body 
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 0;
+        background-color: #40407a;
+
+        main 
+        {
+            width: @amplada;
+            height: @altura;
+            background-image: url(./imgs/background.png);
+            background-repeat: repeat-x;
+            background-color: #2f1e88;
+
+            #arbres
+            {
+                position: absolute;
+                overflow: hidden;
+                width: @amplada;
+                height: @altura;
+                
+                &::before, &::after
+                {
+                    content: "";
+                    position: absolute;
+                    background-image: url(./imgs/tree.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+
+                &::before // arbre petiut
+                {
+                    width: 80px;
+                    height: 100px;
+                    top: 170px;
+                    animation: fiummm 7.33s linear infinite;
+                }
+
+                &::after //arbre gran
+                {
+                    width: 100px;
+                    height: 150px;
+                    top: 130px;
+                    animation: fiummm 4s linear infinite;
+                }
+            }
+
+            #poste 
+            {
+                position: absolute;
+                overflow: hidden;
+                width: @amplada;
+                height: @altura;
+                z-index: 1;
+
+                &::after
+                {
+                    content: "";
+                    position: absolute;
+                    background-image: url(./imgs/postlight.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 50px;
+                    height: 250px;
+                    top: 60px;
+                    animation: fiummm 1.5s linear infinite;
+                }
+            }
+
+            #carro
+            {
+                position: absolute;
+                overflow: hidden;
+                width: @amplada;
+                height: @altura;
+                animation: meneo 2.5s linear infinite;
+                z-index: 2;
+
+                &::before
+                {
+                    content: "";
+                    position: absolute;
+                    background-image: url(./imgs/chasis.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 300px;
+                    height: 250px;
+                    top: 240px;
+                    left: 200px;
+                    z-index: 0;
+                }
+
+                #noia // id del svg
+                {
+                    position: absolute;
+                    width: 60px;
+                    height: 60px;
+                    top: 210px;
+                    left: 270px;
+
+                    #cap
+                    {
+                        animation: cabeceo 0.5s linear infinite;
+                    }
+
+                    #bras
+                    {
+                        position: absolute;
+                        z-index: -100000;
+                    }
+                }
+
+                #ruedinhas
+                {
+                    position: absolute;
+                    overflow: hidden;
+                    width: @amplada;
+                    height: @altura;
+
+                    &::after
+                    {
+                        content: "";
+                        position: absolute;
+                        background-image: url(./imgs/wheel.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 60px;
+                        height: 60px;
+                        top: 290px;
+                        left: 238px;
+                        animation: rodes 0.33s linear infinite;
+                    }
+
+                    &::before
+                    {
+                        content: "";
+                        position: absolute;
+                        background-image: url(./imgs/wheel.png);
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 60px;
+                        height: 60px;
+                        top: 290px;
+                        left: 402px;
+                        animation: rodes 0.33s linear infinite;
+                    }
+                }
+            }
+
+            #astres
+            {
+                position: absolute;
+                overflow: hidden;
+                width: @amplada;
+                height: @altura;
+
+                &::after
+                {
+
+                }
+            }
+            
+        }
+    }
+}
