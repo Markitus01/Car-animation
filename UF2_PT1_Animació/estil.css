@@ -38,10 +38,13 @@
 }
 @keyframes astre {
   0% {
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(500px) rotate(180deg);
   }
   100% {
-    transform: translateX(200px) translateY(-100px);
+    transform: translateX(0) rotate(360deg);
   }
 }
 html {
@@ -172,7 +175,18 @@ html body main #carro #ruedinhas::before {
 }
 html body main #astres {
   position: absolute;
-  overflow: hidden;
   width: 700px;
   height: 400px;
+  animation: astre 8s linear infinite;
+}
+html body main #astres::after {
+  content: "";
+  position: absolute;
+  background-image: url(imgs/sun.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  top: 30px;
+  left: 300px;
 }

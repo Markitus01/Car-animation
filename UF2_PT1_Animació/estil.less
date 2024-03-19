@@ -21,8 +21,9 @@
 }
 
 @keyframes astre{
-    0%      { transform: translateX(0) translateY(0); }
-    100%    { transform: translateX(200px) translateY(-100px); }
+    0%      { transform: translateX(0) rotate(0deg); }
+    50%     { transform: translateX(500px) rotate(180deg) }
+    100%    { transform: translateX(0) rotate(360deg); }
 }
 // KEYFRAMES    ↑↑↑↑↑↑↑↑↑↑↑↑    KEYFRAMES //
 //========================================//
@@ -188,14 +189,36 @@ html
             #astres
             {
                 position: absolute;
-                overflow: hidden;
+                // overflow: hidden;
                 width: @amplada;
                 height: @altura;
+                animation: astre 8s linear infinite;
 
-                &::after
+                &::after // Sol
                 {
-
+                    content: "";
+                    position: absolute;
+                    background-image: url(./imgs/sun.svg);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 100px;
+                    height: 100px;
+                    top: 30px;
+                    left: 300px;
                 }
+
+                // &::before //lluna
+                // {
+                //     content: "";
+                //     position: absolute;
+                //     background-image: url(./imgs/moon.svg);
+                //     background-repeat: no-repeat;
+                //     background-size: contain;
+                //     width: 100px;
+                //     height: 100px;
+                //     top: 20px;
+                //     left: 202px;
+                // }
             }
             
         }
